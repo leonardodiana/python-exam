@@ -1,6 +1,7 @@
 import sqlite3
 import pandas as pd
 import numpy as np
+import json
 
 #importo csv e creo due datframe in base al colore del vino
 df_red=pd.read_csv('https://raw.githubusercontent.com/FabioGagliardiIts/datasets/main/wine_quality/winequality-red.csv', sep=';', encoding='latin1')
@@ -35,5 +36,22 @@ db.commit()
 #        # 
 ##########
 
+
+#funzione per collegarmi al db
+def create_connection():
+    connection = sqlite3.connect('database/sqlite3/db.sqlite')
+    return connection
+
+#READ
+def read_all_wines():
+    connection = create_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM wine")
+    result = [dict((cursor.description[i][0], value) \
+               for i, value in enumerate(row)) for row in cursor.fetchall()]
+    result = cursor.fetchall()
+    connection.commit()
+    connection.close()
+    return result
 
 
