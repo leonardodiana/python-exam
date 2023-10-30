@@ -14,6 +14,7 @@ df_white.insert(0,'color','white')
 #Creo un unico dataframe con vino bianco e rosso. Ho fatto questa scelta per vedere se la qualità del vino può dipendere anche dal colore.
 wine=[df_red,df_white]
 df_wine=pd.concat(wine)
+df_wine.insert(0, "id", range(0, 0+len(df_wine)))
 
 
 #creo db
@@ -49,9 +50,36 @@ def read_all_wines():
     cursor.execute("SELECT * FROM wine")
     result = [dict((cursor.description[i][0], value) \
                for i, value in enumerate(row)) for row in cursor.fetchall()]
-    result = cursor.fetchall()
     connection.commit()
     connection.close()
     return result
 
+def read_wines_by_color(color:str):
+    connection = create_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM wine WHERE color =?", (color,))
+    result = [dict((cursor.description[i][0], value) \
+               for i, value in enumerate(row)) for row in cursor.fetchall()]
+    connection.commit()
+    connection.close()
+    return result
 
+def read_mean_quality():
+    connection = create_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT quality FROM wine")
+    result = [cursor.fetchall()]
+    connection.commit()
+    connection.close()
+    result=np.mean(result)
+    return result
+
+def read_mean_quality_by_color(color:str):
+    connection = create_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT quality FROM wine WHERE color =?", (color,))
+    result = [cursor.fetchall()]
+    connection.commit()
+    connection.close()
+    result=np.mean(result)
+    return result
