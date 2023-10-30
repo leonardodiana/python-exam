@@ -83,3 +83,27 @@ def read_mean_quality_by_color(color:str):
     connection.close()
     result=np.mean(result)
     return result
+
+def read_wine_by_alchohol_vol(vol:float):
+    connection = create_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT * FROM wine WHERE  alcohol > ?", (vol,))
+    result = [dict((cursor.description[i][0], value) \
+               for i, value in enumerate(row)) for row in cursor.fetchall()]
+    connection.commit()
+    connection.close()
+    return result
+
+def read_mean_quality_by_alcohol_vol(vol:float):
+    connection = create_connection()
+    cursor = connection.cursor()
+    cursor.execute("SELECT quality FROM wine WHERE  alcohol > ?", (vol,))
+    result = [cursor.fetchall()]
+    connection.commit()
+    connection.close()
+    result=np.mean(result)
+    return result
+
+type=cursor.execute("SELECT * FROM wine where alcohol>12.3")
+type=cursor.fetchall()
+print(type)
