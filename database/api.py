@@ -1,6 +1,6 @@
 from fastapi import FastAPI
-import sqlite3
 from database.db import *
+from database.crud import *
 import numpy as np
 
 
@@ -8,6 +8,11 @@ import numpy as np
 
 
 app = FastAPI()
+
+@app.post("/addWine")
+def new_wine(wine:Wine):
+    newWine=create_wine(wine)
+    return{"id":newWine, **wine.model_dump()}
 
 
 @app.get("/wine")
@@ -34,3 +39,9 @@ def read_wine_by_alcohol_vol_endpoint(vol:float):
 @app.get("/alcohol/{vol}/mean")
 def read_mean_quality_by_alcohol_vol_endpoint(vol:float):
     return read_mean_quality_by_alcohol_vol(vol)
+
+@app.delete("/deleteWine/{id}")
+def delete_wine_by_id_endpoint(id:int):
+    delete_wine_by_id(id)
+    return{"message": "Dato con eliminato con successo"}
+    
