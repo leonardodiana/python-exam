@@ -6,7 +6,7 @@ import numpy as np
 
 
 
-
+#creo app
 app = FastAPI()
 
 #api POST che richiama funzione presente nel file crud.py
