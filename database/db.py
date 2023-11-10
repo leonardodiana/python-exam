@@ -13,7 +13,7 @@ df_white.insert(0,'color','white')
 #Creo un unico dataframe con vino bianco e rosso. Ho fatto questa scelta per vedere se la qualità del vino può dipendere anche dal colore.
 wine=[df_red,df_white]
 df_wine=pd.concat(wine)
-df_wine.insert(0, "id", range(0, 0+len(df_wine)))
+#df_wine.insert(0, "id", range(0, 0+len(df_wine)))
 
 df_wine=df_wine.rename(columns={ 'fixed acidity':'fixed_acidity',
                                  'volatile acidity':'volatile_acidity',
@@ -29,16 +29,10 @@ db.commit()
 #creo una tabella a partire dal dataframe df_wine
 df_wine.to_sql('wine', db, if_exists='replace', index=False)
 db.commit()
+#ho aggiunto una chiave primaria autoincrementale sulla colonna id utilizzando l'estensione di vscode Sqlite3 Editor
 
 
 #test del db(lo lascio commentato per non avere stampe nel terminale)
 # query=cursor.execute('SELECT * FROM wine LIMIT 10')
 # query=cursor.fetchall()
 # print(query)
-
-def table_columns(table_name):
-    sql = "select * from %s where 1=0;" % table_name
-    cursor.execute(sql)
-    return [d[0] for d in cursor.description]
-
-print(table_columns('wine'))
