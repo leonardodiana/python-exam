@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 
+#creo model per poter fare delle api POST
 class Wine(BaseModel):
     id:int
     color:str

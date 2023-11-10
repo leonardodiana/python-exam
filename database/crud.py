@@ -16,7 +16,7 @@ def create_connection():
     return connection
 
 #CREATE
-
+#insert di un nuovo record nel db, come parametro viene passato un oggetto di tipo Wine, classe che ho definito nel file model.py
 def create_wine(wine:Wine):
     connection = create_connection()
     cursor = connection.cursor()
