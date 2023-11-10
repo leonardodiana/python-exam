@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from database.db import *
 from database.crud import *
 import numpy as np
-
+#importo librerie
 
 
 
