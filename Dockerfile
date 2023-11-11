@@ -1,6 +1,4 @@
-# syntax=docker/dockerfile:1
-
-FROM python:3.11
+FROM --platform=linux/amd64 python:3.11
 
 WORKDIR /database
 
