@@ -34,7 +34,7 @@ def read_all_wines():
     cursor = connection.cursor()
     cursor.execute("SELECT * FROM wine")
     result = [dict((cursor.description[i][0], value) \
-               for i, value in enumerate(row)) for row in cursor.fetchall()]
+              for i, value in enumerate(row)) for row in cursor.fetchall()]
     connection.commit()
     connection.close()
     return result

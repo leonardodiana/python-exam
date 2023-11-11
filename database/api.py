@@ -4,8 +4,6 @@ from database.crud import *
 import numpy as np
 #importo librerie
 
-
-
 #creo app
 app = FastAPI()
 
