@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from fastapi import FastAPI
 from pypmml import Model
 import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 model =Model.fromFile("modello/wine-model.pmml")
 
@@ -41,17 +42,16 @@ def test_wine(wine: WineTest):
         ]
     ]
     data=pd.DataFrame(data).values
-    pred = model.predict(data)[0][1]
+    scaling=StandardScaler()
+    scaled_data=scaling.fit_transform(data)
+    pred = model.predict(scaled_data)
     print(pred)
     prediction = ""
-    if(pred > 0.5):
-        prediction = f"Il vino inserito è di ottima qualità, superiore o uguale a 7 con probabilità del {pred}"
+    if(pred[0][1] > 0.5):
+        prediction = f"Il vino inserito e' di ottima qualita', superiore o uguale a 7. P = {pred[0][1]}"
     else:
-        prediction = f"Il vino inserito è di pessima qualità, inferiore a 7 con probabilità del {pred}"
+        prediction = f"Il vino inserito e' di pessima qualita', inferiore a 7. P = {pred[0][0]}"
 
     return {**wine.model_dump(), "Prediction": prediction}
 
-    # if (result==0):
-    #     return{"Il vino inserito è ottimo, ha una qualità pari a 7 o superiore!"}
-    # else:
-    #     return{"Il vino è di scarsa qualità"}
+   
