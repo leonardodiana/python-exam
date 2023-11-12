@@ -1,12 +1,14 @@
+#importo librerie
 from pydantic import BaseModel
 from fastapi import FastAPI
 from pypmml import Model
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
+#carico il modello di ml 
 model =Model.fromFile("modello/wine-model.pmml")
 
-
+#creo un classe per definire le proprietà dell'oggetto che riceverò come input del modello
 class WineTest(BaseModel):
     color: int
     fixed_acidity: float
@@ -20,10 +22,10 @@ class WineTest(BaseModel):
     sulphates: float
     alcohol: float
 
-
+#creo applicazione
 app = FastAPI()
 
-
+#creo post per dare l'input al modello di ml
 @app.post("/testWine")
 def test_wine(wine: WineTest):
     data = [
@@ -41,11 +43,14 @@ def test_wine(wine: WineTest):
             wine.alcohol,
         ]
     ]
+    #trasformo l'input in un oggetto di tipo dataframe e poi estraggo i valori
     data=pd.DataFrame(data).values
+    #normalizzazione dei dati in input (come avevo fatto per allenare il modello)
     scaling=StandardScaler()
     scaled_data=scaling.fit_transform(data)
+    #prediction dell'input
     pred = model.predict(scaled_data)
-    print(pred)
+    #output della
     prediction = ""
     if(pred[0][1] > 0.5):
         prediction = f"Il vino inserito e' di ottima qualita', superiore o uguale a 7. P = {pred[0][1]}"
@@ -54,4 +59,7 @@ def test_wine(wine: WineTest):
 
     return {**wine.model_dump(), "Prediction": prediction}
 
+    #il modello restituisce una matrice
+    #il primo valore [0][0] è la probabilità che il vino sia di qualità inferiore a 7
+    #il secondo valore [0][1] è la probabilità che sia maggiore di 7
    
