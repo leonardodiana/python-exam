@@ -2,7 +2,7 @@
 <PMML xmlns="http://www.dmg.org/PMML-4_4" xmlns:data="http://jpmml.org/jpmml-model/InlineTable" version="4.4">
 	<Header>
 		<Application name="SkLearn2PMML package" version="0.99.1"/>
-		<Timestamp>2023-11-13T09:55:06Z</Timestamp>
+		<Timestamp>2023-11-13T10:33:56Z</Timestamp>
 	</Header>
 	<DataDictionary>
 		<DataField name="y" optype="categorical" dataType="integer">
@@ -45,114 +45,114 @@
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x1"/>
-						<Constant dataType="double">0.7541110466241052</Constant>
+						<Constant dataType="double">0.7537241245888954</Constant>
 					</Apply>
-					<Constant dataType="double">0.4306130234718724</Constant>
+					<Constant dataType="double">0.43084111758464855</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x2)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x2"/>
-						<Constant dataType="double">7.207428903076038</Constant>
+						<Constant dataType="double">7.208812149351912</Constant>
 					</Apply>
-					<Constant dataType="double">1.302003362095688</Constant>
+					<Constant dataType="double">1.2927840496659884</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x3)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x3"/>
-						<Constant dataType="double">0.337799380924744</Constant>
+						<Constant dataType="double">0.3404923582898057</Constant>
 					</Apply>
-					<Constant dataType="double">0.1626424954992893</Constant>
+					<Constant dataType="double">0.16363266026070505</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x4)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x4"/>
-						<Constant dataType="double">0.31869607274133893</Constant>
+						<Constant dataType="double">0.31741536080479366</Constant>
 					</Apply>
-					<Constant dataType="double">0.14451030814593452</Constant>
+					<Constant dataType="double">0.14337492314163025</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x5)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x5"/>
-						<Constant dataType="double">5.44281292319597</Constant>
+						<Constant dataType="double">5.446488682530471</Constant>
 					</Apply>
-					<Constant dataType="double">4.7901042537577565</Constant>
+					<Constant dataType="double">4.760897911151656</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x6)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x6"/>
-						<Constant dataType="double">0.05575101567034242</Constant>
+						<Constant dataType="double">0.05603114722383446</Constant>
 					</Apply>
-					<Constant dataType="double">0.03388297248712552</Constant>
+					<Constant dataType="double">0.03583022990955834</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x7)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x7"/>
-						<Constant dataType="double">30.45908299477655</Constant>
+						<Constant dataType="double">30.42222867092281</Constant>
 					</Apply>
-					<Constant dataType="double">17.160030494059352</Constant>
+					<Constant dataType="double">17.121538365923985</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x8)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x8"/>
-						<Constant dataType="double">0.9946997939640114</Constant>
+						<Constant dataType="double">0.9946909605339499</Constant>
 					</Apply>
-					<Constant dataType="double">0.0030122956709208414</Constant>
+					<Constant dataType="double">0.0030085808170600514</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x9)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x9"/>
-						<Constant dataType="double">3.219288063455203</Constant>
+						<Constant dataType="double">3.2186032114529</Constant>
 					</Apply>
-					<Constant dataType="double">0.16054052395694096</Constant>
+					<Constant dataType="double">0.16119770523037735</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x10)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x10"/>
-						<Constant dataType="double">0.5306577674598566</Constant>
+						<Constant dataType="double">0.5310775778680604</Constant>
 					</Apply>
-					<Constant dataType="double">0.14565079575030127</Constant>
+					<Constant dataType="double">0.1496086969911025</Constant>
 				</Apply>
 			</DerivedField>
 			<DerivedField name="standardScaler(x11)" optype="continuous" dataType="double">
 				<Apply function="/">
 					<Apply function="-">
 						<FieldRef field="x11"/>
-						<Constant dataType="double">10.48635583929844</Constant>
+						<Constant dataType="double">10.495098342683999</Constant>
 					</Apply>
-					<Constant dataType="double">1.1849542331183842</Constant>
+					<Constant dataType="double">1.1977653520760183</Constant>
 				</Apply>
 			</DerivedField>
 		</LocalTransformations>
-		<RegressionTable intercept="-1.8993262576437435" targetCategory="1">
-			<NumericPredictor name="standardScaler(x1)" coefficient="-0.4720479085561374"/>
-			<NumericPredictor name="standardScaler(x2)" coefficient="0.6887705406799314"/>
-			<NumericPredictor name="standardScaler(x3)" coefficient="-0.6131384960326497"/>
-			<NumericPredictor name="standardScaler(x4)" coefficient="-0.06487977584219981"/>
-			<NumericPredictor name="standardScaler(x5)" coefficient="1.1433163666043378"/>
-			<NumericPredictor name="standardScaler(x6)" coefficient="-0.15720820329994845"/>
-			<NumericPredictor name="standardScaler(x7)" coefficient="0.1500954236683285"/>
-			<NumericPredictor name="standardScaler(x8)" coefficient="-1.4444822473105998"/>
-			<NumericPredictor name="standardScaler(x9)" coefficient="0.42252098849343533"/>
-			<NumericPredictor name="standardScaler(x10)" coefficient="0.358573517861275"/>
-			<NumericPredictor name="standardScaler(x11)" coefficient="0.5371615324888263"/>
+		<RegressionTable intercept="-1.8983894089721907" targetCategory="1">
+			<NumericPredictor name="standardScaler(x1)" coefficient="-0.5183875353173553"/>
+			<NumericPredictor name="standardScaler(x2)" coefficient="0.7355134466475574"/>
+			<NumericPredictor name="standardScaler(x3)" coefficient="-0.5418195486884007"/>
+			<NumericPredictor name="standardScaler(x4)" coefficient="-0.007963287138063576"/>
+			<NumericPredictor name="standardScaler(x5)" coefficient="1.1811166479241677"/>
+			<NumericPredictor name="standardScaler(x6)" coefficient="-0.27288711458247367"/>
+			<NumericPredictor name="standardScaler(x7)" coefficient="0.13658109530985954"/>
+			<NumericPredictor name="standardScaler(x8)" coefficient="-1.5769574208936994"/>
+			<NumericPredictor name="standardScaler(x9)" coefficient="0.4896619312332685"/>
+			<NumericPredictor name="standardScaler(x10)" coefficient="0.35763752516664377"/>
+			<NumericPredictor name="standardScaler(x11)" coefficient="0.4233648363707594"/>
 		</RegressionTable>
 		<RegressionTable intercept="0.0" targetCategory="0"/>
 	</RegressionModel>
