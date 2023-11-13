@@ -94,6 +94,7 @@ def read_mean_quality_by_alcohol_vol(vol:float):
     result=np.mean(result)
     return result
 
+#cancella un vino in base all'id passato come parametro
 def delete_wine_by_id(id:int):
     connection = create_connection()
     cursor = connection.cursor()

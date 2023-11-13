@@ -51,11 +51,12 @@ def test_wine(wine: WineTest):
     #prediction dell'input
     pred = model.predict(scaled_data)
     #output della
+    print(pred)
     prediction = ""
     if(pred[0][1] > 0.5):
         prediction = f"Il vino inserito e' di ottima qualita', superiore o uguale a 7. P = {pred[0][1]}"
     else:
-        prediction = f"Il vino inserito e' di pessima qualita', inferiore a 7. P = {pred[0][0]}"
+        prediction = f"Il vino inserito e' di pessima qualita', inferiore a 7. P = {pred[0][1]}"
 
     return {**wine.model_dump(), "Prediction": prediction}
 
