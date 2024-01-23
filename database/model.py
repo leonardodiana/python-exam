@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-#creo model per poter fare delle api POST
+#creo model per poter fare delle api POST, contiene dele proprietà (i nomi delle colonne del db)
 class Wine(BaseModel):
     id:int
     color:str
